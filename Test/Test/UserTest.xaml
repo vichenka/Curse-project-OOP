@@ -1,0 +1,135 @@
+﻿<Window x:Class="Test.UserTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test"
+        mc:Ignorable="d" 
+    Title="UserTest" Icon="images\icon\quest.ico"  Window.WindowStyle="None" ResizeMode="NoResize" Height="638.737" Width="1261.094" WindowStartupLocation="CenterScreen">
+    <Window.Resources >
+        <Style x:Key="zzz"  TargetType="{x:Type Button}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button" >
+                        <Grid>
+                            <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+                            <Label Content="Result"  Foreground="White"  HorizontalAlignment="Center" FontFamily="Impact"/>
+                            <Rectangle Stroke="White" />
+                            <Rectangle Stroke="{x:Static SystemColors.HighlightBrush }" 
+                             Fill="#841284" >
+                                <Rectangle.OpacityMask>
+                                    <LinearGradientBrush x:Name="HighlightGradient"
+                                StartPoint="0,0" EndPoint="1,1" SpreadMethod="Reflect" Opacity="0.4" >
+                                        <GradientStop Color="White" Offset="0"/>
+                                        <GradientStop Color="Transparent" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <Path Stroke="White"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="HighlightGradient"
+                                        Storyboard.TargetProperty="GradientStops[0].Offset"
+                                        To="1" Duration="0:0:0.4">
+                                            </DoubleAnimation>
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="HighlightGradient"
+                                        Storyboard.TargetProperty="GradientStops[1].Offset"
+                                        To="1" Duration="0:0:0.3"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="HighlightGradient" 
+                                        Storyboard.TargetProperty="GradientStops[0].Offset" 
+                                        To="0" Duration="0:0:0.2">
+                                            </DoubleAnimation>
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="HighlightGradient"
+                                        Storyboard.TargetProperty="GradientStops[1].Offset"
+                                        To="0" Duration="0:0:0.2"/>
+
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="images\fon3.JPG" Stretch="UniformToFill"  TileMode="None" Opacity="0.5" />
+    </Window.Background>
+    <ScrollViewer Margin="0,0,-0.2,0.4">
+        <Grid Margin="0,41,0,0">
+            <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+            <Border Background="Transparent" Margin="10,-40,0,0">
+                <StackPanel Margin="-11,0,0.6,-0.2">
+                    <Label Content="Question" Foreground="White" FontSize="35" HorizontalAlignment="Center" FontFamily="Impact" Width="1176" Height="58" Margin="10,0,58,0"/>
+                    <Label x:Name="txtauthor" Content="author" Foreground="White" FontSize="28" HorizontalAlignment="Center" FontFamily="Impact" Width="1124" Height="45" Margin="10,0,110,0"  />
+                    <DockPanel Height="974">
+
+                        <Grid Width="624" Background="#19000000" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,0,0,0.4" >
+                            <Label Content="1" x:Name="q1" Foreground="White"  FontSize="20" HorizontalAlignment="Center" FontFamily="Microsoft Tai Le" Width="604" Margin="10,23,10,781" MinHeight="114" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                            <Label Content="2" x:Name="q2" Foreground="White" FontSize="20" HorizontalAlignment="Center" FontFamily="Microsoft Tai Le" Width="604" Margin="10,193,10,616" MinHeight="114" />
+                            <Label Content="3" x:Name="q3" Foreground="White" FontSize="20" HorizontalAlignment="Center" FontFamily="Microsoft Tai Le" Width="604" Margin="10,363,10,438" MinHeight="114"/>
+                            <Label Content="4" x:Name="q4" Foreground="White" FontSize="20" HorizontalAlignment="Center" FontFamily="Microsoft Tai Le" Width="604" Margin="10,565,10,248" MinHeight="114" />
+                            <Label Content="5" x:Name="q5" Foreground="White" FontSize="20" HorizontalAlignment="Center" FontFamily="Microsoft Tai Le" Width="604" Margin="10,750,10,33" MinHeight="114" />
+
+                        </Grid>
+
+                        <StackPanel Width="634" Background="#19000000" Margin="0,0,-5,0.4">
+                            <StackPanel  Height="147" Margin="0,11,0.6,0" >
+                                <RadioButton Content="RadioButton" Foreground="White" x:Name="rb11" FontSize="15" FontFamily="Microsoft Tai Le" Height="49" VerticalAlignment="Top" Margin="10,0,9.8,-0.6"/>
+                                <RadioButton Content="RadioButton" Foreground="White"  x:Name="rb12" FontSize="15" FontFamily="Microsoft Tai Le" Height="51" VerticalAlignment="Top" Margin="10,0,9.8,0"/>
+                                <RadioButton Content="RadioButton" Foreground="White"  x:Name="rb13" FontSize="15" FontFamily="Microsoft Tai Le" Height="47" VerticalAlignment="Top" Margin="10,0,9.8,0"/>
+                            </StackPanel>
+                            <Separator Margin="13,0,9.6,2" Background="#951ba3"/>
+                            <StackPanel  Height="162" Margin="0,36,9.6,0" >
+                                <RadioButton Content="RadioButton" Foreground="White"  x:Name="rb21" FontSize="15" FontFamily="Microsoft Tai Le" Height="51" VerticalAlignment="Top" Margin="10,3,10,0"/>
+                                <RadioButton Content="RadioButton" Foreground="White" x:Name="rb22" FontSize="15" FontFamily="Microsoft Tai Le" Height="56" VerticalAlignment="Top" Margin="10,0"/>
+                                <RadioButton Content="RadioButton" Foreground="White" x:Name="rb23" FontSize="15" FontFamily="Microsoft Tai Le" Height="52" VerticalAlignment="Top" Margin="10,0" />
+                            </StackPanel>
+                            <Separator Margin="13,-10,9.6,2" Background="#951ba3"/>
+                            <StackPanel  Height="176" Margin="0,15,-0.4,0" >
+                                <RadioButton Content="RadioButton"  Foreground="White"   x:Name="rb31" FontSize="15" FontFamily="Microsoft Tai Le" Height="57" VerticalAlignment="Top" Margin="10,5,9.6,0"/>
+                                <RadioButton Content="RadioButton" Foreground="White"  x:Name="rb32" FontSize="15" FontFamily="Microsoft Tai Le" Height="55" VerticalAlignment="Top" Margin="10,0,9.6,0"/>
+                                <RadioButton Content="RadioButton" Foreground="White" x:Name="rb33" FontSize="15" FontFamily="Microsoft Tai Le" Height="62" VerticalAlignment="Top" Margin="10,0,9.6,0"/>
+                            </StackPanel>
+                            <Separator Margin="13,-10,9.6,2" Background="#951ba3"/>
+                            <StackPanel Height="184" Margin="0,9,-0.4,0" >
+                                <RadioButton Content="RadioButton" Foreground="White" x:Name="rb41" FontSize="15" FontFamily="Microsoft Tai Le" Height="56" VerticalAlignment="Top" Margin="10,0,9.6,0"/>
+                                <RadioButton Content="RadioButton" Foreground="White" x:Name="rb42" FontSize="15" FontFamily="Microsoft Tai Le" Height="64" VerticalAlignment="Top" Margin="10,0,9.6,0"/>
+                                <RadioButton Content="RadioButton" Foreground="White" x:Name="rb43" FontSize="15" FontFamily="Microsoft Tai Le" Height="60" VerticalAlignment="Top" Margin="10,0,9.6,0"/>
+                            </StackPanel>
+                            <Separator Margin="13,-10,9.6,2" Background="#951ba3"/>
+                            <StackPanel  Height="203" Margin="0,23,0.6,0" >
+                                <RadioButton Content="RadioButton" Foreground="White" FontSize="15" FontFamily="Microsoft Tai Le" x:Name="rb51" Height="54" VerticalAlignment="Top" Margin="10,0,9.8,0"/>
+                                <RadioButton Content="RadioButton" Foreground="White" FontSize="15" FontFamily="Microsoft Tai Le" x:Name="rb52" Height="59" VerticalAlignment="Top" Margin="10,0,9.8,0"/>
+                                <RadioButton Content="RadioButton" Foreground="White" FontSize="15" FontFamily="Microsoft Tai Le" x:Name="rb53" Height="60" VerticalAlignment="Top" Margin="10,0,9.8,0"/>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <Button x:Name="ButtomLog" Margin="905,1045,10,10" Style="{StaticResource zzz}"
+                    Click="ButtomLog_Click"  
+                    FontSize="35" 
+                    />
+            <Image MouseLeftButtonDown="Image_MouseLeftButtonDown_two" Source="images/icon/Back.png" Height="20" Width="20" Margin="1155,-40,69,1127" />
+            <Image MouseLeftButtonDown="Image_MouseLeftButtonDown_one" Source="images/icon/roll_32.png" Height="20" Width="20" Margin="1180,-40,44,1127"  />
+            <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" Source="images/icon/close_32.png" Height="20" Width="20" Margin="1205,-40,19,1127"  />
+        </Grid>
+    </ScrollViewer>
+</Window>
